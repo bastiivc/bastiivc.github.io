@@ -3,23 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flores Amarillas</title>
+    <title>Flores Interactivas</title>
     <style>
         body {
-            margin: 0;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
             height: 100vh;
-            background-color: #f0f8ff;
+            background-color: #000; /* Fondo gris */
+        }
+        .message {
+            padding: 20px;
+            background-color: white; /* Fondo blanco para el cuadro de texto */
+            border: 2px solid #FFD700; /* Borde dorado */
+            border-radius: 10px;
+            font-size: 24px; /* Tamaño de fuente */
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* Sombra */
+            margin-bottom: 20px; /* Espacio entre el mensaje y el botón */
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            background-color: #FFD700; /* Color dorado */
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #FFC107; /* Color dorado más oscuro al pasar el ratón */
         }
         canvas {
-            background-color: #ffffff;
+            display: none; /* Oculta el canvas inicialmente */
+            background-color: #12a14b; /* Fondo blanco para el canvas */
+        }
+        .final-message {
+            display: none; /* Oculta la pantalla final inicialmente */
+            padding: 20px;
+            background-color: white; /* Fondo blanco */
+            border: 2px solid #FFD700; /* Borde dorado */
+            border-radius: 10px;
+            font-size: 24px; /* Tamaño de fuente */
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* Sombra */
+            margin-top: 20px; /* Espacio entre el mensaje y el botón */
+            text-align: center; /* Centra el texto */
+            padding-bottom: 40px; /* Espacio extra en la parte inferior */
+        }
+        .final-message button {
+            margin-top: 20px; /* Espacio adicional para el botón */
+        }
+        .third-message {
+            display: none; /* Oculta la tercera pantalla inicialmente */
+            padding: 20px;
+            background-color: white; /* Fondo blanco */
+            border: 2px solid #FFD700; /* Borde dorado */
+            border-radius: 10px;
+            font-size: 24px; /* Tamaño de fuente */
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* Sombra */
+            text-align: center; /* Centra el texto */
+            margin-top: 20px; /* Espacio entre la pantalla anterior y esta */
         }
     </style>
 </head>
 <body>
+<audio id="backgroundMusic" autoplay loop>
+    <source src="floresamarillas.mp3" type="audio/mpeg"> <!-- Cambia el nombre del archivo -->
+    Tu navegador no soporta audio HTML5.
+</audio>
+
+
+<button id="startButton">Comenzar</button>
+
+<div class="message" style="display: none;">Hola miamor :)</div>
+<button id="nextButton" style="display: none;">Avanzar</button>
+
+<div class="final-message" id="finalMessage">
+    <div>No me olvide ;p</div>
+    <button id="finalNextButton">Continuar</button>
+</div>
+
+<div class="third-message" id="thirdMessage">
+    <div>Te amo mucho, atte: tu ingeniero ;p</div>
+    <button id="thirdNextButton">Avanzar</button>
+</div>
+
 <canvas id="canvas"></canvas>
+
 <script src="flores.js"></script>
-</body>
-</html>
