@@ -1,2 +1,1 @@
-github pages para mi pareja
-
+curriculum interactivo
